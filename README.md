@@ -26,6 +26,13 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+Note: This is not a reproducible experiment, as the data collected and operation were done using the Trottier Observatory at Simon Fraser University which is available only by special permission.
+
+This project uses sky calibration and aperture photometry methods to measure the periodic magnitude fluctuation (known as a light curve) of a cepheid variable star, RR Leo, in the class of RR Lyrae stars. With the star's light curve measured out, one can then calculate for parameters of interest, such as brightness fluctuation period, peak brightness, and distance to name a few. An RR Lyrae star was chosen due to its relatively rapid periodicity, allowing an overnight observation to wholly describe the fluctuations.
+
+Because the observations were done on the ground, the CCD image sensor picks up systematic sources of noise that must be accounted for. These sources are dark currents, offset bias, sky brightness, pixel-to-pixel variations in sensitivity, quantum efficiency, atmospheric absorption and dust. The purpose of the code in Observation.py is to correct these.
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
