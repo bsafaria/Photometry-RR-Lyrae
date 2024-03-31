@@ -8,16 +8,9 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#resources">Resources</a></li>
   </ol>
 </details>
 
@@ -26,7 +19,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Note: This is not a reproducible experiment, as the data collected and operation were done using the Trottier Observatory at Simon Fraser University which is available only by special permission.
+Note: This is not necessarily a reproducible experiment, as the data collected and operation were done using the Trottier Observatory at Simon Fraser University which is available only by special permission. The data input takes the form of [Flexible Image Transport System](https://docs.astropy.org/en/stable/io/fits/) (FITS) files specific to the hardware and collection method at the Trottier Observatory.
 
 This project uses sky calibration and aperture photometry methods to measure the periodic magnitude fluctuation (known as a light curve) of a cepheid variable star, RR Leo, in the class of RR Lyrae stars. With the star's light curve measured out, one can then calculate for parameters of interest, such as brightness fluctuation period, peak brightness, and distance to name a few. An RR Lyrae star was chosen due to its relatively rapid periodicity, allowing an overnight observation to wholly describe the fluctuations.
 
@@ -61,7 +54,7 @@ Project Link: [https://github.com/bsafaria/Photometry-RR-Lyrae](https://github.c
 
 I would like to thank [Dr. Joanna Woo](https://www.sfu.ca/physics/people/faculty/jwa304.html) from Simon Fraser University, the Director of the Trottier Observatory in April 2021, for approving the overnight observation and operation.
 
-Resources of Interest:
+## Resources
 
 * [Introducing Variable Stars](https://www.rasc.ca/variable-stars)
 * [International Variable Star Index](https://www.aavso.org/vsx/index.php?view=detail.top&oid=17041)
