@@ -16,9 +16,8 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments & resources">Acknowledgments</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -86,27 +85,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -123,10 +101,11 @@ Project Link: [https://github.com/bsafaria/Photometry-RR-Lyrae](https://github.c
 
 
 <!-- ACKNOWLEDGMENTS -->
-## Acknowledgments & Resources
+## Acknowledgments
 
 I would like to thank [Dr. Joanna Woo](https://www.sfu.ca/physics/people/faculty/jwa304.html) from Simon Fraser University, the Director of the Trottier Observatory in April 2021, for approving the overnight observation and operation.
 
+Resources of Interest:
 
 * [Introducing Variable Stars](https://www.rasc.ca/variable-stars)
 * [International Variable Star Index](https://www.aavso.org/vsx/index.php?view=detail.top&oid=17041)
