@@ -139,7 +139,7 @@ for f in raw_filelist:
     rawdata = hdu[0].data.astype('float')  # get the data, convert to float, and assign to rawdata
     texp = hdu[0].header['EXPTIME']  # get the exposure time
 
-    # Use the equation in lecture 4 to calibrate the data
+    # Use the calibration equation to calibrate the data
     calibrated_data = (rawdata - texp * MasterDark - MasterBias) / MasterFlat
 
     # modify the hdu file, but save it in the calibrated directory
@@ -240,7 +240,7 @@ for fnosky, fsky in zip(nosky_filelist, sky_filelist):
 
     mag_offset = 11.02 - mag_instrument_GSC
 
-    # Determine the instrumental magnitude from flux_pick; This is the Pogson equation with C=0 (Lecture 2)
+    # Determine the instrumental magnitude from flux_pick; This is the Pogson equation with C=0
     mag_instrument_RRLeo = -2.5 * np.log10(flux_RRLeo / texp)  # instrumental magnitude
     mag_instrument_error_RRLeo = 2.5 * fluxerr_RRLeo / (flux_RRLeo * np.log(
         10))  # determine the error on the magnitude using error propagation through a function
