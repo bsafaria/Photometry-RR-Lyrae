@@ -57,7 +57,7 @@ I would like to thank [Dr. Joanna Woo](https://www.sfu.ca/physics/people/faculty
 ## Resources
 
 * [Introducing Variable Stars](https://www.rasc.ca/variable-stars)
-* [International Variable Star Index](https://www.aavso.org/vsx/index.php?view=detail.top&oid=17041)
+* [International Variable Star Index: RR Leo](https://www.aavso.org/vsx/index.php?view=detail.top&oid=17041)
 * [Nightwatch: A Practical Guide to Viewing the Universe](https://nightwatchbook.com/)
 * [Stellarium](https://stellarium.org/)
 
