@@ -25,7 +25,7 @@ Note: This is not necessarily a reproducible experiment, as the data collected a
 
 This project uses sky calibration and aperture photometry methods to measure the periodic magnitude fluctuation (known as a light curve) of a cepheid variable star, RR Leo, in the class of RR Lyrae stars. With the star's light curve measured out, one can then calculate for parameters of interest, such as brightness fluctuation period, peak brightness, and distance to name a few. An RR Lyrae star was chosen due to its relatively rapid periodicity, allowing an overnight observation to wholly describe the fluctuations.
 
-Because the observations were done on the ground, the [Charge-Coupled Device](https://en.wikipedia.org/wiki/Charge-coupled_device) CCD image sensor picks up systematic sources of noise that must be accounted for. These sources are dark currents, offset bias, sky brightness, pixel-to-pixel variations in sensitivity, quantum efficiency, atmospheric absorption and dust. The purpose of the code in Observation.py is to correct these.
+Because the observations were done on the ground, the [Charge-Coupled Device](https://en.wikipedia.org/wiki/Charge-coupled_device) CCD image sensor picks up random sources of noise, as well as its systematic biases that must be accounted for. These sources are dark currents, offset bias, sky brightness, pixel-to-pixel variations in sensitivity, quantum efficiency, atmospheric absorption and dust. The purpose of the code in Observation.py is to correct these.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
