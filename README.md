@@ -5,6 +5,8 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#disclaimer">Disclaimer</a></li>
+        <li><a href="#description">Description</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -21,12 +23,25 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://twitter.com/sfutrottobs)
 
-Note: This is not necessarily a reproducible experiment, as the data collected and operation were done using the Trottier Observatory at Simon Fraser University which is available only by special permission. The original data has since been lost to time. The data input takes the form of [Flexible Image Transport System](https://docs.astropy.org/en/stable/io/fits/) (FITS) files specific to the hardware and collection method at the Trottier Observatory.
+### Disclaimer
+
+This is not necessarily a reproducible experiment, as the data collected and operation were done using the Trottier Observatory at Simon Fraser University which is available only by special permission. The original data has since been lost to time. The data input takes the form of [Flexible Image Transport System](https://docs.astropy.org/en/stable/io/fits/) (FITS) files specific to the hardware and collection method at the Trottier Observatory.
+
+### Description
 
 This project uses sky calibration and aperture photometry methods to measure the periodic magnitude fluctuation (known as a light curve) of a cepheid variable star, RR Leo, in the class of RR Lyrae stars. With the star's light curve measured out, one can then calculate for parameters of interest, such as brightness fluctuation period, peak brightness, and distance to name a few. An RR Lyrae star was chosen due to its relatively rapid periodicity, allowing an overnight observation to wholly describe the fluctuations.
 
-Because the observations were done on the ground, the [Charge-Coupled Device](https://en.wikipedia.org/wiki/Charge-coupled_device) CCD image sensor picks up random sources of noise, as well as its systematic biases that must be accounted for. These sources are dark currents, offset bias, sky brightness, pixel-to-pixel variations in sensitivity, quantum efficiency, atmospheric absorption and dust. The purpose of the code in Observation.py is to correct these.
+The [Charge-Coupled Device](https://en.wikipedia.org/wiki/Charge-coupled_device) (CCD) image sensor is used by most modern telescopes, especially for optical and ultraviolet observations. CCDs use the photoelectric effect to convert incoming photons into electronic information in the metric of Analog-To-Digital units (ADU).
 
+The CCD however has systematic reading biases that must be accounted for. These sources are dark currents, offset bias, sky brightness, pixel-to-pixel variations in sensitivity (Flat Field corrections), quantum efficiency, atmospheric absorption and dust. The purpose of the code in Observation.py is to correct these.
+
+The "calibrated science frame" $S_{c}$ that is used for data analysis is obtained via the equation:
+
+$$S_{c} = \frac{S_{R} - t_{exp}\dot D - B}{F}$$
+
+where $S_{R}$, $t_{exp}$, $\dot D$, $B$ and $F$ are the raw science frame, exposure time of raw science frame, Master dark current, Master bias, and Master Flat respectively.
+
+These "Master" data sets are obtained by [Sigma-Clipping](https://www.gnu.org/software/gnuastro/manual/html_node/Sigma-clipping.html) multiple exposures onto each other to account for randome noise fluctuations. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
