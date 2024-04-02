@@ -14,6 +14,7 @@ from datetime import datetime
 #%%
 
 def readImageData(f):  # The argument f is a string that contains the file name to be read
+    ''' Inputs .fits files and extracts relevant float data of the sky'''
     hdu = fits.open(f)  # Open the file
     image_data = hdu[0].data  # get the data, and assign to image_data (after calibration they're already floats)
     image_data = image_data.byteswap(
@@ -23,7 +24,12 @@ def readImageData(f):  # The argument f is a string that contains the file name 
 
 
 def subtractSky(image_data, index, filter_size, box_size):
-    ''' Determine the sky level as a function of position '''
+    ''' Inputs image_data and its index within the iterable.
+        filter_size is the filter width and height in pixels
+        box_size is the size of background boxes in pixels
+        
+        The function subtracts the sky noise from the frame'''
+    
     sky = sep.Background(image_data, fw=filter_size, fh=filter_size, bh=box_size,
                          bw=box_size)  # use SEP to determine the background sky level
     sky_data = sky.back()  # This is the 2D array containing the sky level in each pixel (ADUs)
@@ -71,11 +77,11 @@ def colourbar(sc, ax):
     cbar = plt.colorbar(sc, cax=cax, orientation='vertical')
 
 def computeNoise(image_data_nosky, sky_data, texp):
-    # This function computes the total noise in units of ADUs.  Aside from the image data and sky data, you will also need:
-    #  - gain
-    #  - read noise
-    #  - dark current
-    # The total noise is the sum (in quadrature) of 4 sources of noise: the read noise, the dark noise, the sky noise and the data noise
+    ''' This function computes the total noise in units of ADUs.  Aside from the image data and sky data, you will also need:
+      - gain
+      - read noise
+      - dark current
+        The total noise is the sum (in quadrature) of 4 sources of noise: the read noise, the dark noise, the sky noise and the data noise '''
 
     # 1. Declare the gain and read noise (in electrons)
     gain = 1.5
@@ -103,8 +109,10 @@ def computeNoise(image_data_nosky, sky_data, texp):
 
 
 def sourceExtraction(image_data_nosky, skyrms):
+    
     ''' Use sep.extract to find all the objects in image_data_nosky that are 2-sigma above the background,
      where sigma (err) is the skyrms '''
+    
     objects = sep.extract(image_data_nosky, 20., err=skyrms)
 
     # Get the dimensions of image_data_nosky
