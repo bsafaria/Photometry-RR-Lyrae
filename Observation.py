@@ -23,7 +23,7 @@ def readImageData(f):  # The argument f is a string that contains the file name 
 
 
 def subtractSky(image_data, index, filter_size, box_size):
-    # Determine the sky level as a function of position
+    ''' Determine the sky level as a function of position '''
     sky = sep.Background(image_data, fw=filter_size, fh=filter_size, bh=box_size,
                          bw=box_size)  # use SEP to determine the background sky level
     sky_data = sky.back()  # This is the 2D array containing the sky level in each pixel (ADUs)
@@ -65,7 +65,7 @@ def makeplots(image_data, sky_data, image_data_nosky):
 
 
 def colourbar(sc, ax):
-    # This function is complete.  No need to edit.
+    # This function is complete.
     divider = make_axes_locatable(ax)
     cax = divider.append_axes('right', size="5%", pad=0.05)
     cbar = plt.colorbar(sc, cax=cax, orientation='vertical')
@@ -81,7 +81,7 @@ def computeNoise(image_data_nosky, sky_data, texp):
     gain = 1.5
     noise_read = 19.
 
-    # 2. Read the master dark data from Assignment 4 and compute the Poisson noise (in electrons)
+    # 2. Read the master dark data and compute the Poisson noise (in electrons)
     hdu = fits.open('MasterDark.fit')
     MasterDark = hdu[0].data
     noise_dark = np.mean(np.sqrt(gain * np.abs(MasterDark)))
@@ -103,8 +103,8 @@ def computeNoise(image_data_nosky, sky_data, texp):
 
 
 def sourceExtraction(image_data_nosky, skyrms):
-    # Use sep.extract to find all the objects in image_data_nosky that are 2-sigma above the background,
-    # where sigma (err) is the skyrms (follow the example in the slides)
+    ''' Use sep.extract to find all the objects in image_data_nosky that are 2-sigma above the background,
+     where sigma (err) is the skyrms '''
     objects = sep.extract(image_data_nosky, 20., err=skyrms)
 
     # Get the dimensions of image_data_nosky
@@ -122,7 +122,7 @@ def sourceExtraction(image_data_nosky, skyrms):
 
 # %%
 # The first task is to gather all the raw data and get the calibrated science frame for each file
-# The master dark and master bias calibrations are found from assignment 4, the master flat was taken from the night of the observation
+# The master dark and master bias calibrations are found from the night of the observation
 
 raw_filelist = glob.glob('RR_Leo_a_11.03.21/RR*') + glob.glob('RR_Leo_b_11.03.21/RR*')  # creates a list of the .fit files
 
@@ -203,7 +203,7 @@ for fnosky, fsky in zip(nosky_filelist, sky_filelist):
 
     skyrms = hdu_sky[0].header['GLOBLRMS']
 
-    # perform apperture photometry
+    # perform aperture photometry
 
     objects = sourceExtraction(image_data_nosky, skyrms)
 
@@ -227,7 +227,7 @@ for fnosky, fsky in zip(nosky_filelist, sky_filelist):
     fluxerr_RRLeo = fluxerr[idx]
     sn.append(flux_RRLeo/ fluxerr_RRLeo)
 
-    # We need to use the reference star and finds its instrumental magnitude
+    # We need to use the reference star and find its instrumental magnitude
     # the reference star is GSC 1968:912
     x_GSC, y_GSC = 508, 1089  # rough coordinates of the star, although it changes.
 
